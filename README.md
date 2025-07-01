@@ -39,16 +39,15 @@ UFW :
 
 Installation et configuration de l'UFT :
 - Iptables permet a un admin systeme de configurer les regles du pare-feu
-- Sudo apt install ufw pour installer le pare-feu
-- Sudo ufw enable nous montre que le pare-feu est actif
-- Sudo ufw allow 4242 permet de laisser notre pare-feu accepter les connexions dans le port4242
-- Sudo ufw status permet de verifier l etat du pare-feu
-- Sudo ufw delete allow 4242 permet de supprimer une regle
+- sudo apt install ufw pour installer le pare-feu
+- sudo ufw enable nous montre que le pare-feu est actif
+- sudo ufw allow 4242 permet de laisser notre pare-feu accepter les connexions dans le port4242
+- sudo ufw status permet de verifier l etat du pare-feu
+- sudo ufw delete allow 4242 permet de supprimer une regle
 
 ------------------------------------------------------------------------------------------------------------------
 
-sudo :
-
+Sudo :
 Changer nom host :
 - sudo hostnamectl set-hostname <new_hostname>
 - hostnamectl status
@@ -76,42 +75,42 @@ Ajouter au groupe un utilisateur :
 
 ------------------------------------------------------------------------------------------------------------------
 
-Installation et configuration de SSH
+Installation et configuration de SSH :
 -  L'acronyme SSH signifie Secure Shell permet de communiquer via un canal securiser entre deux ordinateurs, 
    entre un client  et un serveur, les donnees ne peuvent pas etre lues par des tiers
 - sudo apt update permet de mettre a jour le systeme
 - sudo apt install openssh-server est l'outil principal pour l'acces a distance avec le protocole SSH
 - sudo service ssh status permet si l'etat est actif
 
-Connexion par SSH
+Connexion par SSH :
 - ssh <user>@localhost -p 4242 permet de se connecter via SSH a notre port 4242
-- en root ne dois pas se connecter mais avec le login oui
+- En root ne dois pas se connecter mais avec le login oui
 
 ------------------------------------------------------------------------------------------------------------------
 
-Mise en place politique sudo
-- creer le fichier pour stocker la politique sudo
-- creer un dossier pour que chaque commande soit enregistre
+Mise en place politique sudo :
+- Creer le fichier pour stocker la politique sudo
+- Creer un dossier pour que chaque commande soit enregistre
 
-Defaults  passwd_tries=3
-Defaults  badpass_message="Mensaje de error personalizado"
-Defaults  logfile="/var/log/sudo/sudo_config"
-Defaults  log_input, log_output
-Defaults  iolog_dir="/var/log/sudo"
-Defaults  requiretty
-Defaults  secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+- Defaults  passwd_tries=3
+- Defaults  badpass_message="Mensaje de error personalizado"
+- Defaults  logfile="/var/log/sudo/sudo_config"
+- Defaults  log_input, log_output
+- Defaults  iolog_dir="/var/log/sudo"
+- Defaults  requiretty
+- Defaults  secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
 
-ligne 1 : nombre d'essaie pour entrer le mdp sudo
-ligne 2 : message d erreur en cas de mdp faux
-ligne 3 : le chemin ou les logs sudo seront stocker
-ligne 4 : ce qui sera enregistrer comme entree et sortie
-ligne 5 : repertoire ou sont stocker entre et sortie (log input et output sont enregister dans /var/log/sudo)
-ligne 6 : exige que sudo soit executer depuis un terminal TTY (force l'utilisation d un terminal pour lancer des commandes)
-ligne 7 : definie le chemin securise pour les executable que sudo est autoriser a lancer
+- ligne 1 : nombre d'essaie pour entrer le mdp sudo
+- ligne 2 : message d erreur en cas de mdp faux
+- ligne 3 : le chemin ou les logs sudo seront stocker
+- ligne 4 : ce qui sera enregistrer comme entree et sortie
+- ligne 5 : repertoire ou sont stocker entre et sortie (log input et output sont enregister dans /var/log/sudo)
+- ligne 6 : exige que sudo soit executer depuis un terminal TTY (force l'utilisation d un terminal pour lancer des commandes)
+- ligne 7 : definie le chemin securise pour les executable que sudo est autoriser a lancer
 
 ------------------------------------------------------------------------------------------------------------------
 
-Editer un mdp fort
+Editer un mdp fort :
 - sudo vim /etc/pam.d/common-password
 - entrer dans l editeur avec vim
 - pass_max_day est le jour max jusqu'a l'expiration du mot de passe
@@ -120,32 +119,32 @@ Editer un mdp fort
 - sudo apt install libpam-pwquality permet d utiliser des paquets pour definir des regles stricte dans le mdp, 
   par exemple longueur min mdp, chiffre et majuscule, mdp trop simple, mdp similaire
 
-minlen=10
-ucredit=-1
-dcredit=-1
-lcredit=-1
-maxrepeat=3
-reject_username
-difok=7
-enforce_for_root
+- minlen=10
+- ucredit=-1
+- dcredit=-1
+- lcredit=-1
+- maxrepeat=3
+- reject_username
+- difok=7
+- enforce_for_root
 
-ligne 1 : le nbr de caractere mini que le mdp doit contenir
-ligne 2 : le mot de passe doit au moins contenir une lettre majuscule
-ligne 3 : le monde de passe doit au moins contenir un chiffre.
-ligne 4 : le mot de passe doit au moins contenir une lettre minuscule.
-ligne 5 : le mdp ne doit pas contenir 3 fois le meme caractere 
-ligne 6 : le mdp ne doit pas contenir le nom de l'utilisateur
-ligne 7 : le mot de passe qu'il doit contenir au moins sept caractères diférent du dernier mot de passe usé.
-ligne 8 : l’option enforce_for_root permet d'appliquer strictement les règles de sécurité des mots de passe configurées 
+- ligne 1 : le nbr de caractere mini que le mdp doit contenir
+- ligne 2 : le mot de passe doit au moins contenir une lettre majuscule
+- ligne 3 : le monde de passe doit au moins contenir un chiffre.
+- ligne 4 : le mot de passe doit au moins contenir une lettre minuscule.
+- ligne 5 : le mdp ne doit pas contenir 3 fois le meme caractere 
+- ligne 6 : le mdp ne doit pas contenir le nom de l'utilisateur
+- ligne 7 : le mot de passe qu'il doit contenir au moins sept caractères diférent du dernier mot de passe usé.
+- ligne 8 : l’option enforce_for_root permet d'appliquer strictement les règles de sécurité des mots de passe configurées 
           pour tous les utilisateurs, y compris root
 
-- modifier les caracteristique du dessus pour l'utilisateur root
+- Modifier les caracteristique du dessus pour l'utilisateur root
 - sudo chage -l <username>pour vérifier le mot de passe de l'utilisateur de root et de login
 - sudo chage -m <time> <username> et sudo chage -M <time> <username> permet de modifier les caracteristique du mdp
 
 ------------------------------------------------------------------------------------------------------------------
 
-Script
+Script :
 grep :
 - permet de rechercher des informations precise dans des fichiers
 awk :
@@ -209,5 +208,4 @@ Crontab :
 * tache execute tous les mois
 * tache execute tous les jours de la semaine
 
-le script sera exectuer toute les 10 min , chaque jour, chaque mois quelque soit le jour de la semaine
-
+Le script sera exectuer toute les 10 min , chaque jour, chaque mois quelque soit le jour de la semaine
