@@ -11,46 +11,39 @@ Le projet Born2beroot a pour objectif de configurer une machine virtuelle Linux 
 - Configurer LVM (Logical Volume Management) à l’installation
 
 # Mise en place et explications :
-Debian : <br>
+Debian :
 - C'est un systeme d'exploitation libre et open source base sur le noyau linux
 - Stable et robuste
 - Utilise apt qui permet d’installer, de mettre à jour et de supprimer des logiciels facilement
 - Systeme de qualite sans se soucier des dernieres fonctionnalite
 
-Rocky : <br>
+Rocky :
 - Acces entreprise
 - Systeme pour le long terme
 - Plus complexe a installer
 
-Difference apt et aptitude : <br>
+Difference apt et aptitude :
 Les deux commandes sont pratiquement similaire sauf que : <br>
 - apt : ne propose pas de solution alternative en cas d'erreur d'installation des paquets
 - aptitude : offre une interface semi-graphique dans le terminal et offre des solutions en cas de conflit
 
-APPAarmor : <br>
+APPAarmor :
 - Restreint les acces aux chemins dans le systeme de fichier, 
 - Il contrôle précisément quelles applications peuvent accéder à quels fichiers ou répertoires
-
-
-
-
-
-
-
 
 ------------------------------------------------------------------------------------------------------------------
 
 UFW : 
-Outil de configuration de pare-feu, permet de creer un pare-feu sur l'hote
-UFW permet de simplifier la gestion des règles du pare-feu
+- Outil de configuration de pare-feu, permet de creer un pare-feu sur l'hote
+- UFW permet de simplifier la gestion des règles du pare-feu
 
- Installation et configuration de l'UFT
-- iptables permet a un admin systeme de configurer les regles du pare-feu
-- sudo apt install ufw pour installer le pare-feu
-- sudo ufw enable nous montre que le pare-feu est actif
-- sudo ufw allow 4242 permet de laisser notre pare-feu accepter les connexions dans le port4242
-- sudo ufw status permet de verifier l etat du pare-feu
-- sudo ufw delete allow 4242 permet de supprimer une regle
+Installation et configuration de l'UFT :
+- Iptables permet a un admin systeme de configurer les regles du pare-feu
+- Sudo apt install ufw pour installer le pare-feu
+- Sudo ufw enable nous montre que le pare-feu est actif
+- Sudo ufw allow 4242 permet de laisser notre pare-feu accepter les connexions dans le port4242
+- Sudo ufw status permet de verifier l etat du pare-feu
+- Sudo ufw delete allow 4242 permet de supprimer une regle
 
 ------------------------------------------------------------------------------------------------------------------
 
