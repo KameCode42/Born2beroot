@@ -48,6 +48,7 @@ Installation et configuration de l'UFT :
 ------------------------------------------------------------------------------------------------------------------
 
 Sudo : <br>
+
 Changer nom host :
 - sudo hostnamectl set-hostname <new_hostname>
 - hostnamectl status
