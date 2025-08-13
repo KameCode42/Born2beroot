@@ -1,4 +1,4 @@
-![born2beroot](https://github.com/user-attachments/assets/45adcfdc-cf13-452b-a624-3faa25fac61c)
+<img width="1024" height="1024" alt="Image" src="https://github.com/user-attachments/assets/2d551d67-9319-4f4d-8f6c-f27c3b4acbe3" />
 
 # Sujet :
 Le projet Born2beroot a pour objectif de configurer une machine virtuelle Linux sécurisée (souvent basée sur Debian ou Rocky Linux) en respectant les bonnes pratiques d'administration système.
